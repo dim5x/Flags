@@ -1,0 +1,33 @@
+html {
+    background: #eeeeee;
+    font-size: 20pt;
+}
+
+table {
+    border-color: black;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    /*border-width: 1px;*/
+}
+
+.header {
+    width: 97%;
+    height: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    height: 50px;
+}
+
+.quest {
+    text-align: center;
+    width: 27.3517%;
+}
+
+.info {
+    width: 27.3517%;
+    height: 50%;
+}

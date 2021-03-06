@@ -1,0 +1,47 @@
+<html lang="ru">
+<head>
+    <title>Flags</title>
+    <link rel="stylesheet" href="/static/css/flags.css">
+</head>
+
+<table cellspacing="0">
+    <tbody>
+
+    <tr class="header">
+        <!--        <td colspan="2">Лого Анаграммажер</td>-->
+    </tr>
+
+    <tr class="main">
+        <td rowspan="2" style="width:69.6483%">
+            <div id="img" style=" padding:5px 10px; text-align:center">
+                <a href="/">
+                    <img src="/static/images/oon/{{ img }}" width="900" height="600" alt="Пример">
+                </a>
+            </div>
+        </td>
+
+        <td class="quest">
+            <form action="/" method="post">
+                <p>
+                    <label>
+                        <input name="check_field" type="text" placeholder="Название страны" autofocus
+                               autocomplete="off">
+                    </label>
+                </p>
+                <p><input name="button" type="submit" value="Проверка"></p>
+            </form>
+
+        </td>
+    </tr>
+
+    <tr>
+        <td class="info" align="center">
+            <label>
+                <textarea style="border-color: {{ bc }} " cols="50" rows="10" name="text">{{dec}}</textarea>
+            </label>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+</html>
