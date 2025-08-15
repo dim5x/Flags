@@ -1,5 +1,7 @@
 ## Тестовое веб-приложение-викторина на Flask, которое показывает случайный флаг, предлагая угадать, какой стране он принадлежит.
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/be6e0b233eaf4c4a945c93f142e1cf8a)](https://app.codacy.com/gh/dim5x/Flags/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
 ### Требования:
 
 - Python 3.7+
