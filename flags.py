@@ -1,9 +1,15 @@
-from flask import Flask, render_template, request
+import configparser
 from random import randint
+
+from flask import Flask, render_template, request
+
 from data import data
 
+config = configparser.ConfigParser()
+config.read('config.ini')
+
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'you-will-never-guess'
+app.config['SECRET_KEY'] = config['settings']['SECRET_KEY']
 
 
 @app.route('/', methods=['POST', 'GET'])
@@ -21,13 +27,13 @@ def start():
         answer = request.form['check_field']
         if answer.lower() == country_name.lower():
             dec = f"Правильно! Это {country_name}. \n\n{full_country_name}."
-            bc='green'
+            bc = 'green'
         else:
             dec = f"Нет! Это {country_name}. \n\n{full_country_name}."
-            bc='red'
+            bc = 'red'
         print(answer)
-        return render_template('flags.html', img=country_flag, dec=dec,bc=bc)
+        return render_template('flags.html', img=country_flag, dec=dec, bc=bc)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
