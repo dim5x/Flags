@@ -7,12 +7,12 @@ from data import data
 app = Flask(__name__)
 app.config['SECRET_KEY'] = token_hex(16)
 
-img, country_name, full_country_name, country_flag = [None] * 4
+country_name, full_country_name, country_flag = [None] * 3
 
 
 @app.route('/', methods=['POST', 'GET'])
 def start():
-    global img, country_name, full_country_name, country_flag
+    global country_name, full_country_name, country_flag
     if request.method == 'GET':
         random_number = randbelow(192)
         country_name = data[random_number]['Страна']
