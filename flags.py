@@ -1,22 +1,18 @@
-import configparser
-from random import randint
+from secrets import randbelow, token_hex
 
 from flask import Flask, render_template, request
 
 from data import data
 
-config = configparser.ConfigParser()
-config.read('config.ini')
-
 app = Flask(__name__)
-app.config['SECRET_KEY'] = config['settings']['SECRET_KEY']
+app.config['SECRET_KEY'] = token_hex(16)
 
 
 @app.route('/', methods=['POST', 'GET'])
 def start():
     global img, country_name, full_country_name, country_flag
     if request.method == 'GET':
-        random_number = randint(1, 192)
+        random_number = randbelow(192)
         country_name = data[random_number]['Страна']
         full_country_name = data[random_number]['Полное название страны']
         country_flag = str(random_number) + '.svg'
