@@ -7,6 +7,8 @@ from data import data
 app = Flask(__name__)
 app.config['SECRET_KEY'] = token_hex(16)
 
+img, country_name, full_country_name, country_flag = [None] * 4
+
 
 @app.route('/', methods=['POST', 'GET'])
 def start():
@@ -22,13 +24,13 @@ def start():
     elif request.method == 'POST':
         answer = request.form['check_field']
         if answer.lower() == country_name.lower():
-            dec = f"Правильно! Это {country_name}. \n\n{full_country_name}."
-            bc = 'green'
+            message = f"Правильно! Это {country_name}. \n\n{full_country_name}."
+            border_color = 'green'
         else:
-            dec = f"Нет! Это {country_name}. \n\n{full_country_name}."
-            bc = 'red'
+            message = f"Нет! Это {country_name}. \n\n{full_country_name}."
+            border_color = 'red'
         print(answer)
-        return render_template('flags.html', img=country_flag, dec=dec, bc=bc)
+        return render_template('flags.html', img=country_flag, message=message, bc=border_color)
 
 
 if __name__ == '__main__':
